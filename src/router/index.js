@@ -1,0 +1,21 @@
+import Vue from 'vue'
+import Router from 'vue-router'
+import Home from '@/components/Home'
+import Currencies from '@/components/Currencies'
+
+Vue.use(Router)
+
+export default new Router({
+  routes: [
+    {
+      path: '/',
+      name: 'Home',
+      component: Home
+    },
+    {
+      path: '/currencies',
+      name: 'Currencies',
+      component: Currencies
+    }
+  ]
+})
