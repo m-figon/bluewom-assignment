@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <div class="home-text">
+    <div v-if="logedAc===''" class="home-text">
       <h2>Welcome to CurrencyChecker!</h2>
       <div class="line">
         <h1>To check currencies</h1>
@@ -11,6 +11,12 @@
         <h1 id="green" v-on:click="register()">sign up</h1>
       </div>
     </div>
+    <div v-if="logedAc!==''" class="home-text">
+      <h1>Welcome to CurrencyChecker {{logedAc}}!</h1>
+      <a href="#/currencies">
+        <h1 id="green" >Check your currencies</h1>
+      </a>
+    </div>
   </div>
 </template>
 
@@ -20,7 +26,14 @@ import store from "../store/index";
 export default {
   store,
   data() {
-    return {};
+    return {
+      logedAc: "",
+    };
+  },
+  created() {
+    setInterval(() => {
+      this.logedAc = this.$store.state.user.logedUser;
+    }, 500);
   },
   methods: {
     login() {
@@ -50,8 +63,8 @@ export default {
 .home-text {
   margin-left: 40%;
   width: 15rem;
-  height: 15rem;
-  padding: 0 5rem;
+  height: auto;
+  padding: 2rem 3rem;
   display: flex;
   justify-content: center;
   align-items: flex-start;
