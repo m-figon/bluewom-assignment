@@ -16,19 +16,47 @@
       </div>
       <div class="right">
         <a href="#/currencies">
-          <h1>Currencies</h1>
+          <h1 v-if="logedAc!==''">{{logedAc}}'s Currencies</h1>
         </a>
-        <h1>Login</h1>
-        <h1>Register</h1>
+        <div v-if="logedAc===''">
+          <h1 v-on:click="login()">Sign in</h1>
+        </div>
+        <div v-else>
+          <h1 v-on:click="signOut()">Sign out</h1>
+        </div>
+        <h1 v-on:click="register()">Sign up</h1>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import store from "../store/index";
+
 export default {
+  store,
   data() {
-    return {};
+    return {
+      logedAc: "",
+    };
+  },
+  created() {
+    setInterval(() => {
+      this.logedAc = this.$store.state.user.logedUser;
+    }, 500);
+  },
+  methods: {
+    signOut() {
+      this.$store.commit("changeName", "");
+    },
+    login() {
+      this.$store.commit("changeLogin", true);
+      this.$store.commit("changeRegister", false);
+    },
+    register() {
+      this.$store.commit("changeRegister", true);
+      this.$store.commit("changeLogin", false);
+    },
   },
 };
 </script>
@@ -68,6 +96,9 @@ export default {
   font-size: 1.2rem;
   margin-right: 1rem;
   color: white;
+}
+.nav-bar-content h1:hover {
+  cursor: pointer;
 }
 .nav-bar-content img {
   height: 2rem;

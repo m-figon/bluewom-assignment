@@ -4,20 +4,33 @@
       <h2>Welcome to CurrencyChecker!</h2>
       <div class="line">
         <h1>To check currencies</h1>
-        <h1 id="green">sign in</h1>
+        <h1 id="green" v-on:click="login()">sign in</h1>
       </div>
       <div class="line">
         <h1>Don't have account?</h1>
-        <h1 id="green">sign up</h1>
+        <h1 id="green" v-on:click="register()">sign up</h1>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import store from "../store/index";
+
 export default {
+  store,
   data() {
     return {};
+  },
+  methods: {
+    login() {
+      this.$store.commit("changeLogin", true);
+      this.$store.commit("changeRegister", false);
+    },
+    register() {
+      this.$store.commit("changeRegister", true);
+      this.$store.commit("changeLogin", false);
+    },
   }
 };
 </script>
