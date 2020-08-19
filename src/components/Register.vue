@@ -42,7 +42,6 @@
         <button v-on:click="register()">Register</button>
       </div>
     </div>
-    <div v-if="!loaded" class="loading"></div>
   </div>
 </template>
 
@@ -63,11 +62,7 @@ export default {
       emailShow: false,
       passwordShow: false,
       password2Show: false,
-      loaded: false,
     };
-  },
-  mounted() {
-    this.loaded = true;
   },
   methods: {
     focusFunc(text, event, condition) {
@@ -188,81 +183,6 @@ export default {
 };
 </script>
 
-<style>
-.register {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  z-index: 5;
-}
-.register-form {
-  border-radius: 10px;
-  width: 25rem;
-  height: auto;
-  background-color: #5b6467;
-  background-image: linear-gradient(315deg, #5b6467 0%, #8b939a 74%);
-  background-size: 100% 100%;
-  background-size: 100% 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  border: 1px solid #04d387;
-}
-.register-form {
-  width: 30rem;
-}
-.register-form-content {
-  width: 70%;
-  height: 80%;
-  display: flex;
-  flex-direction: column;
-}
-.register-form-content p {
-  margin: 0;
-  color: #8b0000;
-  font-size: 1rem;
-}
-.register-form-content input {
-  background: rgba(0, 0, 0, 0);
-  border: 0;
-  border-bottom: 1px solid #04d387;
-  width: 100%;
-  height: 2rem;
-  font-size: 1.2rem;
-  color: white;
-  margin: 1rem 0;
-}
-.register-form-content button {
-  background: #04d387;
-  border-radius: 5px;
-  border: 1px solid #a3a3a3;
-  width: 4rem;
-  height: 2rem;
-  font-size: 1.2rem;
-  color: white;
-  margin: 1rem 0;
-}
-.register-form-content button:hover {
-  background: #04d387;
-  cursor: pointer;
-}
-.register-form-content button {
-  width: 6rem;
-}
-.x-button {
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-}
-.x-button button {
-  width: 2rem;
-}
+<style src="../style.css">
+
 </style>

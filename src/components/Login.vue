@@ -20,8 +20,6 @@
         <button v-on:click="login()">Login</button>
       </div>
     </div>
-    <div v-if="!loaded" class="loading">
-    </div>
   </div>
 </template>
 
@@ -36,7 +34,6 @@ export default {
       type: "text",
       users: [],
       accountId: false,
-      loaded: false
     };
   },
   created() {
@@ -45,7 +42,6 @@ export default {
       .then((data) => {
         this.users = data.slice();
         console.log(this.users);
-        this.loaded=true;
       });
   },
   methods: {
@@ -99,73 +95,6 @@ export default {
   },
 };
 </script>
-<style>
-.login{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  z-index: 5;
-}
-.login-form{
-  border-radius: 10px;
-  width: 25rem;
-  height: auto;
-  background-color: #5b6467;
-  background-image: linear-gradient(315deg, #5b6467 0%, #8b939a 74%);  background-size: 100% 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  border: 1px solid #04d387;
-}
-.login-form-content {
-  width: 70%;
-  height: 80%;
-  display: flex;
-  flex-direction: column;
-}
-.login-form-content p {
-  margin: 0;
-  color:#8b0000;
-  font-size: 1rem;
-}
-.login-form-content input {
-  background: rgba(0, 0, 0, 0);
-  border: 0;
-  border-bottom: 1px solid #04d387;
-  width: 100%;
-  height: 2rem;
-  font-size: 1.2rem;
-  color: white;
-  margin: 1rem 0;
-}
-.login-form-content button {
-  background: #04d387;
-  border-radius: 5px;
-  border: 1px solid #a3a3a3;
-  width: 4rem;
-  height: 2rem;
-  font-size: 1.2rem;
-  color: white;
-  margin: 1rem 0;
-}
-.login-form-content button:hover {
-  background: #04d387;
-  cursor: pointer;
-}
-.x-button {
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-}
-.x-button button {
-  width: 2rem;
-}
+<style src="../style.css">
+
 </style>

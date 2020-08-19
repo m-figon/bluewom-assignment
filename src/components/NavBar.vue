@@ -61,64 +61,6 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-.nav-bar {
-  background-color: #5b6467;
-  background-image: linear-gradient(315deg, #5b6467 0%, #8b939a 74%);
-  width: 100%;
-  height: 3rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  border-bottom: 2px solid #04d387;
-}
-.nav-bar-content {
-  width: 50%;
-  display: flex;
-  align-items: center;
-}
-.nav-bar-content .left {
-  width: 40%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.nav-bar-content .right {
-  width: 60%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.nav-bar-content h1 {
-  margin: 0;
-  font-size: 1.2rem;
-  margin-right: 1rem;
-  color: white;
-}
-.nav-bar-content h1:hover {
-  cursor: pointer;
-}
-.nav-bar-content img {
-  height: 2rem;
-  width: 2rem;
-  margin-right: 0.5rem;
-}
-.nav-bar-content h2 {
-  margin: 0;
-  font-size: 1.5rem;
-  font-family: "Permanent Marker", cursive;
-  color: white;
-}
-.line {
-  display: flex;
-  align-items: center;
-}
-#green {
-  color: #04d387;
-}
-a {
-  text-decoration: none;
-}
+<style src="../style.css">
+
 </style>

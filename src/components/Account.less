@@ -1,0 +1,73 @@
+@import '../global.less';
+
+.login,
+.register{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    .flex();
+    z-index: 5;
+  }
+  .login-form,
+  .register-form{
+    border-radius: 10px;
+    width: 25rem;
+    height: auto;
+    background-color: #5b6467;
+    background-image: linear-gradient(315deg, #5b6467 0%, #8b939a 74%);  background-size: 100% 100%;
+    .flex();
+    border: 1px solid @main-color;
+  }
+  .login-form-content,
+  .register-form-content {
+    width: 70%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    p {
+        margin: 0;
+        color:#8b0000;
+        font-size: 1rem;
+      }
+      input {
+        background: rgba(0, 0, 0, 0);
+        border: 0;
+        border-bottom: 1px solid @main-color;
+        width: 100%;
+        height: 2rem;
+        font-size: 1.2rem;
+        color: white;
+        margin: 1rem 0;
+      }
+      button  {
+        background: @main-color;
+        border-radius: 5px;
+        border: 1px solid #a3a3a3;
+        width: 4rem;
+        height: 2rem;
+        font-size: 1.2rem;
+        color: white;
+        margin: 1rem 0;
+        &:hover{
+            background: lighten(@main-color,5%);
+            cursor: pointer;
+        }
+      }
+  }
+  .x-button {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .register-form {
+    width: 30rem;
+  }
+  .register-form-content button {
+    width: 6rem;
+  }
+  .x-button button {
+    width: 2rem;
+  }

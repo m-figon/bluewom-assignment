@@ -1,0 +1,32 @@
+@import './components/Account.less';
+@import './components/Currencies.less';
+@import './components/Home.less';
+@import './components/NavBar.less';
+
+#app {
+    margin: 0;
+  }
+  body {
+    width:100vw;
+    overflow-x: hidden;
+    margin: 0;
+    font-family: "Lato", sans-serif;
+    background-color: rgb(218, 218, 218);
+  }
+  .loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #5b6467;
+    background-image: linear-gradient(315deg, #5b6467 0%, #8b939a 74%);
+    z-index: 10;
+    img {
+        width: 3rem;
+        height: 3rem;
+      }
+  }

@@ -19,8 +19,8 @@ export default {
   store,
   components: {
     "nav-bar": NavBar,
-    'login': Login,
-    'register': Register
+    login: Login,
+    register: Register,
   },
   data() {
     return {
@@ -37,13 +37,6 @@ export default {
 };
 </script>
 
-<style>
-#app {
-  margin: 0;
-}
-body {
-  margin: 0;
-  font-family: "Lato", sans-serif;
-  background-color: rgb(218, 218, 218);
-}
+<style src="./style.css">
+
 </style>
