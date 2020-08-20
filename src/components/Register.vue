@@ -29,7 +29,7 @@
         />
         <p
           v-bind:style="[passwordShow ? {'display':'block'} : {'display':'none'}]"
-        >Password must consist of 8-13 letters and digits, at least one upper and lowercase letter, special character</p>
+        >Password must consist of 8-13 characters, at least one upper and lowercase letter, digit, special character</p>
         <input
           v-model="password2"
           v-bind:type="type2"

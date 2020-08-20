@@ -25,3 +25,7 @@ https://github.com/m-figon/bluewom-assignment-backend
 ## page link
 
 https://bluewom-assignment-mfigon.netlify.app
+
+## video presentation
+
+https://drive.google.com/file/d/1sOQNki1nGx7ueXTOXRJwFBHSKin8zSsh/view?usp=sharing
