@@ -37,15 +37,14 @@ export default {
     };
   },
   created() {
-    fetch("https://bluewom-assignment-backend.herokuapp.com/users")
+    fetch("https://bluewom-assignment-backend.herokuapp.com/users") //get users data
       .then((response) => response.json())
       .then((data) => {
         this.users = data.slice();
-        console.log(this.users);
       });
   },
   methods: {
-    focusFunc(text, event, condition) {
+    focusFunc(text, event, condition) { //clearing input when it has certain value on focus
       let texts = ["Account Name", "Password"];
       let states = ["this.account", "this.password"];
       for (let i = 0; i < texts.length; i++) {
@@ -57,7 +56,7 @@ export default {
         this.type = "password";
       }
     },
-    blurFunc(text, event, condition) {
+    blurFunc(text, event, condition) { //setting input value to default one when it's empty on blur
       let texts = ["Account Name", "Password"];
       let states = ["this.account", "this.password"];
       for (let i = 0; i < texts.length; i++) {
@@ -69,14 +68,14 @@ export default {
         }
       }
     },
-    inputsReset() {
+    inputsReset() { //inputs values, type and show p tag flag reset
       this.accountId = false;
       this.account = "Account Name";
       this.type = "text";
       this.password = "Password";
     },
-    login() {
-      let correct = false;
+    login() { //login functionality
+      let correct = false; 
       for (let item of this.users) {
         if (item.account === this.account && item.password === this.password) {
           this.$store.commit("changeName", this.account);
@@ -89,7 +88,7 @@ export default {
         this.accountId = true;
       }
     },
-    quit() {
+    quit() { //hiding login pop-up
       this.$store.commit("changeLogin", false);
     },
   },

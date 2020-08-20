@@ -40,20 +40,20 @@ export default {
       logedAc: "",
     };
   },
-  created() {
+  created() { //refreshing logged account state
     setInterval(() => {
       this.logedAc = this.$store.state.user.logedUser;
     }, 500);
   },
   methods: {
-    signOut() {
+    signOut() { //setting logged account value to ''
       this.$store.commit("changeName", "");
     },
-    login() {
+    login() { //showing login pop-up
       this.$store.commit("changeLogin", true);
       this.$store.commit("changeRegister", false);
     },
-    register() {
+    register() { //showing register pop-up
       this.$store.commit("changeRegister", true);
       this.$store.commit("changeLogin", false);
     },

@@ -72,7 +72,7 @@
           <button v-on:click="addCurrency()">Add Currency</button>
         </div>
         <div class="currency-line-right">
-          <button v-on:click="showConfirm('2',true,null)">Remove All Currencies</button>
+          <button v-show="userCurrencies.length>0" v-on:click="showConfirm('2',true,null)">Remove All Currencies</button>
         </div>
       </div>
     </div>
@@ -84,10 +84,10 @@
             <option value="none">Select currency</option>
             <option v-for="item in currencies" v-bind:value="item.code">{{item.currency}}</option>
           </select>
-          <button v-on:click="addCurrency()">Add Currency</button>
+          <button  v-on:click="addCurrency()">Add Currency</button>
         </div>
         <div class="currency-line-right">
-          <button v-on:click="showConfirm(2,true,null)">Remove All Currencies</button>
+          <button v-show="userCurrencies.length>0" v-on:click="showConfirm(2,true,null)">Remove All Currencies</button>
         </div>
       </div>
     </div>
@@ -103,7 +103,6 @@
         <h1 id="green" v-on:click="register()">sign up</h1>
       </div>
       </div>
-      
     </div>
   </div>
 </template>
@@ -128,18 +127,16 @@ export default {
   },
   created() {
     setInterval(() => {
-      this.logedAc = this.$store.state.user.logedUser;
-      if (this.logedAc !== "" && this.firstFetch) {
+      this.logedAc = this.$store.state.user.logedUser; //refreshing logged account state
+      if (this.logedAc !== "" && this.firstFetch) { //if there was not any fetch before get data
         fetch("https://bluewom-assignment-backend.herokuapp.com/users")
           .then((response) => response.json())
           .then((data) => {
             let users = data;
-            console.log(users);
             for (let item of users) {
               if (item.account === this.logedAc) {
                 this.logedUser = item;
                 this.userCurrencies = item.currencies;
-                console.log(this.userCurrencies);
                 this.firstFetch = false;
                 this.loaded=true
               }
@@ -147,55 +144,49 @@ export default {
           });
       }
     }, 500);
-    fetch("https://api.nbp.pl/api/exchangerates/tables/C")
+    fetch("https://api.nbp.pl/api/exchangerates/tables/C") //get currency data
       .then((response) => response.json())
       .then((data) => {
         this.currencies = data[0].rates.slice();
-        console.log(this.currencies);
       });
   },
   methods: {
     fetchData() {
-      fetch("https://bluewom-assignment-backend.herokuapp.com/users")
+      fetch("https://bluewom-assignment-backend.herokuapp.com/users") //get users data from Heroku server
         .then((response) => response.json())
         .then((data) => {
           let users = data;
-          console.log(users);
           for (let item of users) {
             if (item.account === this.logedAc) {
               this.logedUser = item;
               this.userCurrencies = item.currencies;
-              console.log(this.userCurrencies);
             }
           }
         });
     },
-    login() {
+    login() { //show login pop-up
       this.$store.commit("changeLogin", true);
       this.$store.commit("changeRegister", false);
     },
-    register() {
+    register() { //show register pop-up
       this.$store.commit("changeRegister", true);
       this.$store.commit("changeLogin", false);
     },
-    showConfirm(num,value,item) {
+    showConfirm(num,value,item) { //show confirm pop-up
       if(num==='1'){
         this.confirm1=value;
       }else if(num==='2'){
         this.confirm2=value;
       }
       this.index=item;
-      
     },
-    addCurrency() {
+    addCurrency() { //add new currency to users currencies property
       let tmpCurrency = this.userCurrencies.slice();
-      console.log(this.currency);
       for (let item of this.currencies) {
         if (item.code === this.currency) {
           tmpCurrency.push(item);
         }
       }
-      console.log(tmpCurrency);
       fetch(
         "https://bluewom-assignment-backend.herokuapp.com/users/" +
           this.logedUser.id,
@@ -216,11 +207,9 @@ export default {
         this.fetchData();
       });
     },
-    deleteCurrency(index) {
+    deleteCurrency(index) { //delete one currency from users currencies property
       let tmpCurrency = this.userCurrencies.slice();
-      console.log(this.currency);
       tmpCurrency.splice(index, 1);
-      console.log(tmpCurrency);
       fetch(
         "https://bluewom-assignment-backend.herokuapp.com/users/" +
           this.logedUser.id,
@@ -238,11 +227,11 @@ export default {
           },
         }
       ).then(() => {
-        this.fetchData();
-        this.showConfirm('1',false,null);
+        this.fetchData(); //refresh data
+        this.showConfirm('1',false,null); //hide confirm pop-up
       });
     },
-    deleteAllCurrencies() {
+    deleteAllCurrencies() { //delete all currencies from users currencies property
       fetch(
         "https://bluewom-assignment-backend.herokuapp.com/users/" +
           this.logedUser.id,
@@ -260,8 +249,8 @@ export default {
           },
         }
       ).then(() => {
-        this.fetchData();
-        this.showConfirm('2',false,null);
+        this.fetchData(); //refresh data
+        this.showConfirm('2',false,null); //hide confirm pop-up
       });
     },
   },

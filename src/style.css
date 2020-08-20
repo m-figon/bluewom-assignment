@@ -201,6 +201,7 @@
   height: 3rem;
   border: 1px solid gray;
   border-top: 0;
+  border-radius: 2px;
   display: flex;
   background-color: white;
 }

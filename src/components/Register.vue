@@ -12,7 +12,7 @@
         />
         <p
           v-bind:style="[accountShow ? {'display':'block'} : {'display':'none'}]"
-        >Account must consist of 3-12 letters or digits</p>
+        >Account must consist of 4-10 letters or digits</p>
         <input
           v-model="email"
           v-on:focus="focusFunc('Email Address',$event,0)"
@@ -20,7 +20,7 @@
         />
         <p
           v-bind:style="[emailShow ? {'display':'block'} : {'display':'none'}]"
-        >Please enter correct email</p>
+        >Please enter correct email address</p>
         <input
           v-model="password"
           v-bind:type="type1"
@@ -29,7 +29,7 @@
         />
         <p
           v-bind:style="[passwordShow ? {'display':'block'} : {'display':'none'}]"
-        >Password must consist of 3-12 letters and digits, at least one upper and lowercase letter, special character</p>
+        >Password must consist of 8-13 letters and digits, at least one upper and lowercase letter, special character</p>
         <input
           v-model="password2"
           v-bind:type="type2"
@@ -65,7 +65,7 @@ export default {
     };
   },
   methods: {
-    focusFunc(text, event, condition) {
+    focusFunc(text, event, condition) { //clearing input when it has certain value on focus
       let texts = [
         "Account Name",
         "Email Address",
@@ -89,7 +89,7 @@ export default {
         this.type2 = "password";
       }
     },
-    blurFunc(text, event, condition) {
+    blurFunc(text, event, condition) { //setting input value to default one when it's empty on blur
       let texts = [
         "Account Name",
         "Email Address",
@@ -113,7 +113,7 @@ export default {
         }
       }
     },
-    valuesReset() {
+    valuesReset() { //inputs values, types and show p tag flags reset
       this.account = "Account Name";
       this.email = "Email Address";
       this.password = "Password";
@@ -125,7 +125,7 @@ export default {
       this.passwordShow = false;
       this.password2Show = false;
     },
-    ifCheck(condition) {
+    ifCheck(condition) { //function to avoid code repetition
       if (condition) {
         return false;
       } else {
@@ -133,7 +133,7 @@ export default {
         return true;
       }
     },
-    register() {
+    register() { //checking if inputs values are correct, if they are creating new user
       this.registerFlag = true;
       this.emailShow = this.ifCheck(
         !(
@@ -176,7 +176,7 @@ export default {
         alert("New user created");
       }
     },
-    quit() {
+    quit() { //hiding register pop-up
       this.$store.commit("changeRegister", false);
     },
   },

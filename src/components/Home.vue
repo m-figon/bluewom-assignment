@@ -35,21 +35,19 @@ export default {
     };
   },
   created() {
-    setInterval(() => {
+    setTimeout(()=>{ //setting timeout to load home background
+      this.loaded=true;
+    },1000)
+    setInterval(() => { //refresh logged account state
       this.logedAc = this.$store.state.user.logedUser;
     }, 500);
   },
-  mounted: function () {
-  this.$nextTick(function () {
-    this.loaded=true;
-  })
-  },
   methods: {
-    login() {
+    login() { //show login pop-up
       this.$store.commit("changeLogin", true);
       this.$store.commit("changeRegister", false);
     },
-    register() {
+    register() { //show register pop-up
       this.$store.commit("changeRegister", true);
       this.$store.commit("changeLogin", false);
     },
