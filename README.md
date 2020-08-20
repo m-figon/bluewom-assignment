@@ -14,7 +14,7 @@
 
 -To sign out after login click on text named 'Sign out'
 
--To test page cuntionality use account name 'testUser' and password 'TestUser.123' or create new account by signing up
+-To test page funtionality use account name 'testUser' and password 'TestUser.123' or create new account by signing up and then signing in
 
 -Website is size adjustable (works on small tvs, laptops and mobile phones screens)
 
