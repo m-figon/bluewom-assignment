@@ -1,21 +1,27 @@
-# bluewom-assignment
+# BLUEWOM Assignment
 
-> A Vue.js project
+-This a front-end application using Vue.js, JavaScript, Less, HTML, CSS
 
-## Build Setup
+-To login or register click on text placed in navigation bar or click at green signs in home url
 
-``` bash
-# install dependencies
-npm install
+-To check currencies click on sign in navigation bar 'users's currencies' or click at green sign 'Check your currencies' in home url (you have to be logged in to check currencies)
 
-# serve with hot reload at localhost:8080
-npm run dev
+-To add currency select it on select element and click 'Add Currency' button
 
-# build for production with minification
-npm run build
+-To delete one currency from the list click green X button and confirm it
 
-# build for production and view the bundle analyzer report
-npm run build --report
-```
+-To delete all currencies from the list click 'Remove All Currencies' button and confirm it
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+-To sign out after login click on text named 'Sign out'
+
+-To test page cuntionality use account name 'testUser' and password 'TestUser.123' or create new account by signing up
+
+-Website is size adjustable (works on small tvs, laptops and mobile phones screens)
+
+## back-end source code
+
+https://github.com/m-figon/bluewom-assignment-backend
+
+## page link
+
+https://bluewom-assignment-mfigon.netlify.app

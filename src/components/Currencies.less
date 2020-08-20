@@ -139,10 +139,10 @@
   }
   .loged-text {
     margin-top: 3rem;
-    margin-left: 40%;
+    margin-left: 0%;
     width: 15rem;
     height: auto;
-    padding: 2rem 3rem;
+    padding: 2rem 2rem;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -167,4 +167,59 @@
   #green:hover {
     cursor: pointer;
     color: lighten(@main-color,5%);
+  }
+  @media only screen and (max-width: 1000px) {
+    .currencies h2,
+    .currency,
+    .currency-line{
+      width:30rem;
+    }
+    .currencies h2{
+      font-size: 1.2rem;
+    }
+    .item h1{
+      font-size: 0.8rem;
+    }
+  }
+  @media only screen and (max-width: 650px) {
+    .currencies h2,
+    .currency,
+    .currency-line{
+      width:25rem;
+    }
+    .currencies h2{
+      font-size: 1.0rem;
+    }
+    .item h1{
+      font-size: 0.7rem;
+    }
+    .currency-line{
+      flex-direction: column;
+    }
+    .currency-line-left,
+    .currency-line-right{
+      width:100%;
+      justify-content: flex-start;
+    }
+    .currency-line-right{
+      margin-top:2rem;
+    }
+  }
+  @media only screen and (max-width: 450px) {
+    .currencies h2,
+    .currency,
+    .currency-line{
+      width:18rem;
+    }
+    .confirm-content{
+      width:17rem;
+      h1{
+        font-size:0.8rem;
+      }
+    } 
+    .loged-text{
+      h2{
+        font-size: 1.3rem;
+      }
+    }
   }

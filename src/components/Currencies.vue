@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="!loaded" class="loading">
+    <div v-if="!loaded && logedAc!==''" class="loading">
       <img src="../assets/load.gif" />
     </div>
     <div v-if="confirm1" class="confirm">
@@ -91,8 +91,9 @@
         </div>
       </div>
     </div>
-    <div v-if="logedAc===''" class="loged-text">
-      <h2>You are not logged</h2>
+    <div v-if="logedAc===''" class="currencies">
+      <div class="loged-text">
+        <h2>You are not logged</h2>
       <div class="line">
         <h1>To check currencies</h1>
         <h1 id="green" v-on:click="login()">sign in</h1>
@@ -101,6 +102,8 @@
         <h1>Don't have an account?</h1>
         <h1 id="green" v-on:click="register()">sign up</h1>
       </div>
+      </div>
+      
     </div>
   </div>
 </template>
@@ -144,7 +147,7 @@ export default {
           });
       }
     }, 500);
-    fetch("http://api.nbp.pl/api/exchangerates/tables/C")
+    fetch("https://api.nbp.pl/api/exchangerates/tables/C")
       .then((response) => response.json())
       .then((data) => {
         this.currencies = data[0].rates.slice();
